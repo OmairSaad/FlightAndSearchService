@@ -1,13 +1,21 @@
-/
-   -src/
-       index.js  //server
-       models/
-       controllers/
-       middlewares/
-       services/
-       utils/
-       config/
-       repository/
-   -tests/ [later]   
-   -static/
-   -temp/
+# Welcome to Search and Flight service
+
+## Project Set Up
+- clone the project one your local
+- Execute `npm install` on the same path as of your root where the downloaded project
+- create a .env file in the root directory and add follwing environment variable
+    - `PORT=3000`
+- Inside the src/config directory create a config.json file and add the following piece of json
+
+```
+
+{
+  "development": {
+    "username": <Your mysql username>,
+    "password": <Your mysql password if>,
+    "database": <Db name>,
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+}
+```
