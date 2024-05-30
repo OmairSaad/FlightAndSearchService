@@ -7,6 +7,6 @@ const setUpAndRunServer = async ()=>{
     app.use(body_parser.urlencoded({extended:true})); 
     app.listen(PORT, ()=>{
         console.log(`Server is running on PORT ${PORT}`);
-    })
-}
+    }) 
+} 
 setUpAndRunServer();

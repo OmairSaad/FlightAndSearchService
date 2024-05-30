@@ -19,4 +19,6 @@
   },
 }
 ```
-- once you have added db config as listed above, go to src folder from your terminal and execute `npx sequelize db:create`
+- once you have added db config as listed above, go to src folder from your terminal and execute `npx sequelize db:create` then `npx sequelize db:migrate` to create table in db on the basis of model.
+
+- To create a model use `npx sequelize modle:generate --name City --attributes name:string` in `/src` directory where `config/cnfig.json` file exits.
