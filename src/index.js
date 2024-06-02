@@ -1,6 +1,7 @@
 const express = require('express');
 const {PORT} = require('./config/serverConfig.js');
 const body_parser = require('body-parser');
+const router = require('./Routes/index.js');
 const setUpAndRunServer = async ()=>{
     const app = express();
     app.use(body_parser.json());
@@ -8,5 +9,6 @@ const setUpAndRunServer = async ()=>{
     app.listen(PORT, ()=>{
         console.log(`Server is running on PORT ${PORT}`);
     }) 
-} 
-setUpAndRunServer();
+    app.use('/api',router)  
+}   
+setUpAndRunServer(); 
