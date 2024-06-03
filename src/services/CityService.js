@@ -1,9 +1,9 @@
 const { CityRepo } = require("../repository/index");
 class CityService{
     repo = new CityRepo();
-    async getAllCities(){
+    async getAllCities(filter){
         try{
-            const cities = await this.repo.getAllCities();
+            const cities = await this.repo.getAllCities(filter);
              return cities;
         }catch(er){
          throw {er}

@@ -1,10 +1,11 @@
+const { Op, where } = require('sequelize');
 const { City, sequelize } = require('../models/index');
 class CityRepo {
     async createCity(name) {
         try {
             return await City.create(name);
         } catch (er) {
-            throw {er};
+            throw { er };
         }
     }
 
@@ -16,20 +17,20 @@ class CityRepo {
             //     }
             // });
             // return true;
-            const city =await City.findByPk(cityId);
-             await city.destroy();
+            const city = await City.findByPk(cityId);
+            await city.destroy();
             return true;
         } catch (er) {
-            throw {er};
+            throw { er };
         }
     }
 
     async getCity(cityId) {
         try {
-            const city =await City.findByPk(cityId);
+            const city = await City.findByPk(cityId);
             return city;
         } catch (er) {
-            throw {er};
+            throw { er };
         }
     }
 
@@ -44,17 +45,31 @@ class CityRepo {
             const city = await City.findByPk(cityId);
             city.name = data.name;
             return await city.save();     //save this city in db
-        }catch (er) {
-            throw {er};
+        } catch (er) {
+            throw { er };
         }
     }
 
-     async getAllCities(){
-        try{
-            return await City.findAll();
-        }catch (er) {
-            throw {er};
-        } 
-    } 
+    async getAllCities(filter) {
+        try {
+            if(!filter.name){
+                return await City.findAll();
+            }
+            const cities = City.findAll({
+                where:{
+                    name:{
+                    [Op.startsWith]:filter.name
+                    }
+                }
+            })
+            console.log(filter.name);
+            return cities;
+        } catch (er) {
+            throw { er };
+        }
+    }
+    
 }
+
+
 module.exports = CityRepo; 

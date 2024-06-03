@@ -19,7 +19,7 @@ const CreateCity = async (req,res)=>{
 }
 const getAllCities = async (req,res)=>{
     try{
-        const cities = await cs.getAllCities();
+        const cities = await cs.getAllCities(req.query);
         res.status(200).json({
             data:cities,
             success:true,
@@ -86,11 +86,31 @@ const updateCity = async (req,res)=>{
             error: er
         })
     }
+
+}
+
+const getCitybyName = async function(req,res){
+    try{
+        const city = await cs.getCityByName(req.params);
+        return res.status(200).json({
+            data: city,
+            success:true,
+            message:"Succesfully city is fetched with name",
+            error:{}
+        })
+    }catch(e){
+        return res.status(500).json({
+            success:false,
+            message:"failed",
+            error: e
+        })
+    }
 }
 module.exports = {
     CreateCity,
     getAllCities,
     deleteCity,
     getCity,
-    updateCity
+    updateCity,
+    getCitybyName
 }
