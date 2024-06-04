@@ -22,3 +22,8 @@
 - once you have added db config as listed above, go to src folder from your terminal and execute `npx sequelize db:create` then `npx sequelize db:migrate` to create table in db on the basis of model.
 
 - To create a model use `npx sequelize modle:generate --name City --attributes name:string` in `/src` directory where `config/cnfig.json` file exits.
+
+## Tables
+### City -> Id, name, created_at , updated_at
+### Airport -> id , name, adress, city_id, create_at , update_at 
+    Relationships -> City has many Airports and Airport belongs to a City (One to many)
