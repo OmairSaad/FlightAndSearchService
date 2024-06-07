@@ -38,7 +38,11 @@ class AirportRepo{
 
     async getAirport(id){
         try{
-            return await Airport.findByPk(id);
+            return await Airport.findByPk(id,{
+                include:{
+                    model:City
+                }
+            });
         }catch(e){
             throw {e}
         }

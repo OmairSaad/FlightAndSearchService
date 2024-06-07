@@ -35,11 +35,11 @@ npx sequelize db:migrate
 ### Airport Routes:
 `GET /api/v1/airports:` Fetches all airports, including the associated city for each airport.
 
-`POST /api/v1/airports:` Creates a new airport.
+`POST /api/v1/cities/:cityId/airports:` Creates a new airport with cityId (Association).
 
 `GET /api/v1/airports/:id:` Fetches a specific airport by ID, including the associated city.
 
-`GET /api/v1/cities/:cityId/airports` Fetches all airports for a specific city.
+`GET /api/v1/cities/:cityName/airports` Fetches all airports for a specific city.
 
 `PATCH /api/v1/airports/:id:` Updates a specific airport by ID.
 
