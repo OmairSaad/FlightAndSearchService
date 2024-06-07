@@ -3,7 +3,10 @@ const { City, sequelize } = require('../models/index');
 class CityRepo {
     async createCity(name) {
         try {
-            return await City.create(name);
+            if(Array.isArray(name))
+            return await City.bulkCreate(name);
+        else
+        return await City.create(name);
         } catch (er) {
             throw { er };
         }

@@ -89,28 +89,10 @@ const updateCity = async (req,res)=>{
 
 }
 
-const getCitybyName = async function(req,res){
-    try{
-        const city = await cs.getCityByName(req.params);
-        return res.status(200).json({
-            data: city,
-            success:true,
-            message:"Succesfully city is fetched with name",
-            error:{}
-        })
-    }catch(e){
-        return res.status(500).json({
-            success:false,
-            message:"failed",
-            error: e
-        })
-    }
-}
 module.exports = {
     CreateCity,
     getAllCities,
     deleteCity,
     getCity,
     updateCity,
-    getCitybyName
 }

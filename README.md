@@ -32,3 +32,16 @@
 npx sequelize model:generate --name Airport --attributes name:String, address:String, cityId:Integer
 npx sequelize db:migrate
 ```
+### Airport Routes:
+`GET /api/v1/airports:` Fetches all airports, including the associated city for each airport.
+
+`POST /api/v1/airports:` Creates a new airport.
+
+`GET /api/v1/airports/:id:` Fetches a specific airport by ID, including the associated city.
+
+`GET /api/v1/cities/:cityId/airports` Fetches all airports for a specific city.
+
+`PATCH /api/v1/airports/:id:` Updates a specific airport by ID.
+
+`DELETE /api/v1/airports/:id:` Deletes a specific airport by ID.
+
